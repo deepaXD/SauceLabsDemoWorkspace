@@ -1,0 +1,165 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 0,
+    "passes": 0,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-20T11:50:35.253Z",
+    "end": "2024-12-20T11:50:41.626Z",
+    "duration": 6373,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "77c03740-5505-4f2c-998a-ed3415f245c9",
+      "title": "",
+      "fullFile": "/Users/ard/ddhanwat/lean/sauceLabDemoWorkspace/dist/tests/checkoutTest.js",
+      "file": "/dist/tests/checkoutTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "75490570-c6b9-4be3-8efe-760c368a408a",
+          "title": "Sauce Labs Demo",
+          "fullFile": "/Users/ard/ddhanwat/lean/sauceLabDemoWorkspace/dist/tests/checkoutTest.js",
+          "file": "/dist/tests/checkoutTest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "7ddc397f-2214-4cb9-a705-b45906fc9ad1",
+              "title": "Happy Path checkout flow",
+              "fullFile": "/Users/ard/ddhanwat/lean/sauceLabDemoWorkspace/dist/tests/checkoutTest.js",
+              "file": "/dist/tests/checkoutTest.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before each\" hook for \"Add three items by name to cart and verify customer is able to successfully checkout\"",
+                  "fullTitle": "Sauce Labs Demo Happy Path checkout flow \"before each\" hook for \"Add three items by name to cart and verify customer is able to successfully checkout\"",
+                  "timedOut": false,
+                  "duration": 6317,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "return __awaiter(this, void 0, void 0, function* () {\n    const browser = yield new browser_1.Browser('chrome').build();\n    page = new pages_1.Pages(browser);\n    yield page.login.adminAuthenticate(index_1.config.username, index_1.config.password);\n});",
+                  "err": {
+                    "message": "NoSuchWindowError: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=131.0.6778.205)",
+                    "estack": "NoSuchWindowError: no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=131.0.6778.205)\n    at Object.throwDecodedError (node_modules/selenium-webdriver/lib/error.js:522:15)\n    at parseHttpResponse (node_modules/selenium-webdriver/lib/http.js:548:13)\n    at Executor.execute (node_modules/selenium-webdriver/lib/http.js:474:28)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async Driver.execute (node_modules/selenium-webdriver/lib/webdriver.js:735:17)\n    at async toWireValue (node_modules/selenium-webdriver/lib/webdriver.js:140:15)\n    at async /Users/ard/ddhanwat/lean/sauceLabDemoWorkspace/node_modules/selenium-webdriver/lib/webdriver.js:190:16\n    at async forEachKey (node_modules/selenium-webdriver/lib/webdriver.js:184:9)\n    at async convertKeys (node_modules/selenium-webdriver/lib/webdriver.js:189:3)\n    at async Driver.execute (node_modules/selenium-webdriver/lib/webdriver.js:733:22)",
+                    "diff": null
+                  },
+                  "uuid": "9f7a66bb-cc93-413f-a389-34072cb2a823",
+                  "parentUUID": "7ddc397f-2214-4cb9-a705-b45906fc9ad1",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after each\" hook in \"Happy Path checkout flow\"",
+                  "fullTitle": "Sauce Labs Demo Happy Path checkout flow \"after each\" hook in \"Happy Path checkout flow\"",
+                  "timedOut": false,
+                  "duration": 54,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "return __awaiter(this, void 0, void 0, function* () {\n    yield page.quit();\n});",
+                  "err": {},
+                  "uuid": "68e5e61f-2d41-4ab2-8668-70ba0191dffc",
+                  "parentUUID": "7ddc397f-2214-4cb9-a705-b45906fc9ad1",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "Add three items by name to cart and verify customer is able to successfully checkout",
+                  "fullTitle": "Sauce Labs Demo Happy Path checkout flow Add three items by name to cart and verify customer is able to successfully checkout",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "return __awaiter(this, void 0, void 0, function* () {\n    yield page.customer.selectItemByName(data.cartItemName1);\n    (0, chai_1.expect)(yield page.customer.cartItemCount(), \"Fail message: expected cart count to be 1\").equal(data.cartCount1);\n    yield page.customer.selectItemByName(data.cartItemName2);\n    (0, chai_1.expect)(yield page.customer.cartItemCount(), \"Fail message: expected cart count to be 2\").equal(data.cartCount2);\n    yield page.customer.selectItemByName(data.cartItemName3);\n    (0, chai_1.expect)(yield page.customer.cartItemCount(), \"Fail message: expected cart count to be 3\").equal(data.cartCount3);\n    yield page.customer.selectCart();\n    yield page.customer.selctCheckout();\n    yield page.customer.fillCheckoutForm(data.firstName, data.lastName, data.zipCode);\n    yield page.customer.selctContinue();\n    yield page.customer.selctFinish();\n    // expect(await page.customer.successImage()).exist('1');\n    const successMessage = yield page.customer.successMessage();\n    (0, chai_1.expect)(successMessage).equal(data.successMessage);\n    const textMessage = yield page.customer.textMessage();\n    (0, chai_1.expect)(textMessage).equal(data.textMessage);\n});",
+                  "err": {},
+                  "uuid": "7cd66809-849e-4077-a95e-7d39bf795e68",
+                  "parentUUID": "7ddc397f-2214-4cb9-a705-b45906fc9ad1",
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "7cd66809-849e-4077-a95e-7d39bf795e68"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report-[datetime]",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "reportFilename": "report-[datetime]",
+        "reportPageTitle": "Selenium Typescript Testing Report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
